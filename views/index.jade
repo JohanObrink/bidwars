@@ -1,5 +1,10 @@
 extends layout
 
 block content
-  h1= title
-  p Welcome to #{title}
+  .content(ng-controller="AppController")
+    nav.navbar(ng-controller="MainNavController")
+      .navbar-inner
+        a.brand(href="/") {{app.name}}
+        ul.nav
+          li(ng-repeat="item in items")
+            a(href="{{item.href}}") {{item.name}}
